@@ -1,0 +1,3 @@
+<h1>#{blogPostTitle blogPost}
+<article .jumbotron>
+  #{blogPostArticle blogPost}
