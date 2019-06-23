@@ -12,11 +12,16 @@ let
     template-haskell text time unordered-containers vector wai
     wai-extra wai-logger warp yaml yesod yesod-auth yesod-core
     yesod-form yesod-static
+    markdown
+    yesod-text-markdown
   ]);
   systemPackages = with pkgs; [
     postgresql
     zlib
     zlib.dev
+    binutils
+    gcc
+    ghc
   ];
 in
   pkgs.stdenv.mkDerivation {
@@ -24,6 +29,5 @@ in
     buildInputs = [ ghc systemPackages ];
     shellHook = ''
       eval $(egrep ^export ${ghc}/bin/ghc)
-      fish
     '';
 }
